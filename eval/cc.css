@@ -1,0 +1,99 @@
+/* style.css */
+
+/* Réinitialisation globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa; /* Gris très clair */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Titre principal */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #2f3640; /* Gris foncé */
+    font-weight: 700;
+}
+
+/* Conteneur principal pour les iframes */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap; /* Permet de passer en colonne sur mobile */
+}
+
+/* Style général des iframes */
+iframe {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Animation au survol */
+iframe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Largeur spécifique pour les iframes */
+iframe[name="fenetre1"] {
+    flex: 1 1 250px; /* minimum 250px, flexible pour desktop */
+    max-width: 300px;
+    height: 800px;
+}
+
+iframe[name="fenetre2"] {
+    flex: 3 1 600px; /* prend plus de place que le menu */
+    max-width: 900px;
+    height: 800px;
+}
+
+/* Responsive - pour tablettes et mobiles */
+@media (max-width: 1024px) {
+    iframe[name="fenetre1"],
+    iframe[name="fenetre2"] {
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    iframe[name="fenetre1"],
+    iframe[name="fenetre2"] {
+        width: 90%;
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    iframe[name="fenetre1"],
+    iframe[name="fenetre2"] {
+        height: 400px;
+    }
+}
